@@ -1,0 +1,262 @@
+﻿@model EDDW.Models.Speaker
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Speaker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Fullname" class="control-label"></label>
+                <input asp-for="Fullname" class="form-control" />
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <select asp-for="Title" class="form-control" asp-items="Html.GetEnumSelectList<Title>()"></select>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Speciality" class="control-label"></label>
+                <input asp-for="Speciality" class="form-control" />
+                <span asp-validation-for="Speciality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <select asp-for="Country" class="form-control">
+                    <option>Afghanistan-AFG</option>
+                    <option>Albania-ALB</option>
+                    <option>Algeria-DZA</option>
+                    <option>Andorra-AND</option>
+                    <option>Angola-AGO</option>
+                    <option>Antigua and Barbuda-ATG</option>
+                    <option>Argentina-ARG</option>
+                    <option>Armenia-ARM</option>
+                    <option>Australia-AUS</option>
+                    <option>Austria-AUT</option>
+                    <option>Azerbaijan-AZE</option>
+                    <option>Bahamas-BHS</option>
+                    <option>Bahrain-BHR</option>
+                    <option>Bangladesh-BGD</option>
+                    <option>Barbados-BRB</option>
+                    <option>Belarus-BLR</option>
+                    <option>Belgium-BEL</option>
+                    <option>Belize-BLZ</option>
+                    <option>Benin-BEN</option>
+                    <option>Bhutan-BTN</option>
+                    <option>Bolivia -BOL</option>
+                    <option>Bosnia and Herzegovina-BIH</option>
+                    <option>Botswana-BWA</option>
+                    <option>Brazil-BRA</option>
+                    <option>Brunei Darussalam-BRN</option>
+                    <option>Bulgaria-BGR</option>
+                    <option>Burkina Faso-BFA</option>
+                    <option>Burundi-BDI</option>
+                    <option>Cabo Verde-CPV</option>
+                    <option>Cambodia-KHM</option>
+                    <option>Cameroon-CMR</option>
+                    <option>Canada-CAN</option>
+                    <option>Central African Republic-CAF</option>
+                    <option>Chad-TCD</option>
+                    <option>Chile-CHL</option>
+                    <option>China-CHN</option>
+                    <option>Colombia-COL</option>
+                    <option>Comoros-COM</option>
+                    <option>Congo-COG</option>
+                    <option>Cook Islands-COK</option>
+                    <option>Costa Rica-CRI</option>
+                    <option>Croatia-HRV</option>
+                    <option>Cuba-CUB</option>
+                    <option>Cyprus-CYP</option>
+                    <option>Czechia-CZE</option>
+                    <option>Côte d'Ivoire-CIV</option>
+                    <option>Democratic People's Republic of Korea-PRK</option>
+                    <option>Democratic Republic of the Congo-COD</option>
+                    <option>Denmark-DNK</option>
+                    <option>Djibouti-DJI</option>
+                    <option>Dominica-DMA</option>
+                    <option>Dominican Republic-DOM</option>
+                    <option>Ecuador-ECU</option>
+                    <option>Egypt-EGY</option>
+                    <option>El Salvador-SLV</option>
+                    <option>Equatorial Guinea-GNQ</option>
+                    <option>Eritrea-ERI</option>
+                    <option>Estonia-EST</option>
+                    <option>Eswatini-SWZ</option>
+                    <option>Ethiopia-ETH</option>
+                    <option>Faroe Islands-FRO</option>
+                    <option>Fiji-FJI</option>
+                    <option>Finland-FIN</option>
+                    <option>France-FRA</option>
+                    <option>Gabon-GAB</option>
+                    <option>Gambia-GMB</option>
+                    <option>Georgia-GEO</option>
+                    <option>Germany-DEU</option>
+                    <option>Ghana-GHA</option>
+                    <option>Greece-GRC</option>
+                    <option>Grenada-GRD</option>
+                    <option>Guatemala-GTM</option>
+                    <option>Guinea-GIN</option>
+                    <option>GuineaBissau-GNB</option>
+                    <option>Guyana-GUY</option>
+                    <option>Haiti-HTI</option>
+                    <option>Honduras-HND</option>
+                    <option>Hungary-HUN</option>
+                    <option>Iceland-ISL</option>
+                    <option>India-IND</option>
+                    <option>Indonesia-IDN</option>
+                    <option>Iran -IRN</option>
+                    <option>Iraq-IRQ</option>
+                    <option>Ireland-IRL</option>
+                    <option>Israel-ISR</option>
+                    <option>Italy-ITA</option>
+                    <option>Jamaica-JAM</option>
+                    <option>Japan-JPN</option>
+                    <option>Jordan-JOR</option>
+                    <option>Kazakhstan-KAZ</option>
+                    <option>Kenya-KEN</option>
+                    <option>Kiribati-KIR</option>
+                    <option>Kuwait-KWT</option>
+                    <option>Kyrgyzstan-KGZ</option>
+                    <option>Lao People's Democratic Republic-LAO</option>
+                    <option>Latvia-LVA</option>
+                    <option>Lebanon-LBN</option>
+                    <option>Lesotho-LSO</option>
+                    <option>Liberia-LBR</option>
+                    <option>Libya-LBY</option>
+                    <option>Lithuania-LTU</option>
+                    <option>Luxembourg-LUX</option>
+                    <option>Madagascar-MDG</option>
+                    <option>Malawi-MWI</option>
+                    <option>Malaysia-MYS</option>
+                    <option>Maldives-MDV</option>
+                    <option>Mali-MLI</option>
+                    <option>Malta-MLT</option>
+                    <option>Marshall Islands-MHL</option>
+                    <option>Mauritania-MRT</option>
+                    <option>Mauritius-MUS</option>
+                    <option>Mexico-MEX</option>
+                    <option>Micronesia -FSM</option>
+                    <option>Monaco-MCO</option>
+                    <option>Mongolia-MNG</option>
+                    <option>Montenegro-MNE</option>
+                    <option>Morocco-MAR</option>
+                    <option>Mozambique-MOZ</option>
+                    <option>Myanmar-MMR</option>
+                    <option>Namibia-NAM</option>
+                    <option>Nauru-NRU</option>
+                    <option>Nepal-NPL</option>
+                    <option>Netherlands-NLD</option>
+                    <option>New Zealand-NZL</option>
+                    <option>Nicaragua-NIC</option>
+                    <option>Niger-NER</option>
+                    <option>Nigeria-NGA</option>
+                    <option>Niue-NIU</option>
+                    <option>North Macedonia-MKD</option>
+                    <option>Norway-NOR</option>
+                    <option>Oman-OMN</option>
+                    <option>Pakistan-PAK</option>
+                    <option>Palau-PLW</option>
+                    <option>Panama-PAN</option>
+                    <option>Papua New Guinea-PNG</option>
+                    <option>Paraguay-PRY</option>
+                    <option>Peru-PER</option>
+                    <option>Philippines-PHL</option>
+                    <option>Poland-POL</option>
+                    <option>Portugal-PRT</option>
+                    <option>Qatar-QAT</option>
+                    <option>Republic of Korea-KOR</option>
+                    <option>Republic of Moldova-MDA</option>
+                    <option>Romania-ROU</option>
+                    <option>Russian Federation-RUS</option>
+                    <option>Rwanda-RWA</option>
+                    <option>Saint Kitts and Nevis-KNA</option>
+                    <option>Saint Lucia-LCA</option>
+                    <option>Saint Vincent and the Grenadines-VCT</option>
+                    <option>Samoa-WSM</option>
+                    <option>San Marino-SMR</option>
+                    <option>Sao Tome and Principe-STP</option>
+                    <option>Saudi Arabia-SAU</option>
+                    <option>Senegal-SEN</option>
+                    <option>Serbia-SRB</option>
+                    <option>Seychelles-SYC</option>
+                    <option>Sierra Leone-SLE</option>
+                    <option>Singapore-SGP</option>
+                    <option>Slovakia-SVK</option>
+                    <option>Slovenia-SVN</option>
+                    <option>Solomon Islands-SLB</option>
+                    <option>Somalia-SOM</option>
+                    <option>South Africa-ZAF</option>
+                    <option>South Sudan-SSD</option>
+                    <option>Spain-ESP</option>
+                    <option>Sri Lanka-LKA</option>
+                    <option>Sudan-SDN</option>
+                    <option>Suriname-SUR</option>
+                    <option>Sweden-SWE</option>
+                    <option>Switzerland-CHE</option>
+                    <option>Syrian Arab Republic-SYR</option>
+                    <option>Tajikistan-TJK</option>
+                    <option>Thailand-THA</option>
+                    <option>TimorLeste-TLS</option>
+                    <option>Togo-TGO</option>
+                    <option>Tokelau-TKL</option>
+                    <option>Tonga-TON</option>
+                    <option>Trinidad and Tobago-TTO</option>
+                    <option>Tunisia-TUN</option>
+                    <option>Turkey-TUR</option>
+                    <option>Turkmenistan-TKM</option>
+                    <option>Tuvalu-TUV</option>
+                    <option>Uganda-UGA</option>
+                    <option>Ukraine-UKR</option>
+                    <option>United Arab Emirates-ARE</option>
+                    <option>United Kingdom-GBR</option>
+                    <option>United Republic of Tanzania-TZA</option>
+                    <option>United States of America-USA</option>
+                    <option>Uruguay-URY</option>
+                    <option>Uzbekistan-UZB</option>
+                    <option>Vanuatu-VUT</option>
+                    <option>Venezuela -VEN</option>
+                    <option>Viet Nam-VNM</option>
+                    <option>Yemen-YEM</option>
+                    <option>Zambia-ZMB</option>
+                    <option>Zimbabwe-ZWE</option>
+
+                </select>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
