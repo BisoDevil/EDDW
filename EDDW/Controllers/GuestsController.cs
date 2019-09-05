@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EDDW.Data;
 using EDDW.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EDDW.Controllers
 {
+    [Authorize]
     public class GuestsController : Controller
     {
         private readonly ApplicationDbContext _context;
