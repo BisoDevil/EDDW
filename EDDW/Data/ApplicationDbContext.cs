@@ -4,6 +4,7 @@ using System.Text;
 using EDDW.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EDDW.Data
 {
@@ -46,7 +47,9 @@ namespace EDDW.Data
                 .HasForeignKey(e => e.SponsorId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-
+            builder.Entity<Programme>()
+                .Property(s => s.Status)
+                .HasConversion(new EnumToStringConverter<ProgrammeStatus>());
 
 
 

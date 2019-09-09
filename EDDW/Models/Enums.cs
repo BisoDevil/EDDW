@@ -21,4 +21,11 @@ namespace EDDW.Models
     {
         Single, Double
     }
+    public enum ProgrammeStatus
+    {
+        Pending,
+        Running,
+        Closed
+    }
+
 }

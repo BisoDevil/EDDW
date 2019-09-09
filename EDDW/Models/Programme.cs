@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -43,6 +46,9 @@ namespace EDDW.Models
         [Required]
         [Display(Name = "Attendance code")]
         public string AttendanceCode { get; set; }
+
+        //[JsonConverter(typeof(StringEnumConverter))]
+        public ProgrammeStatus Status { get; set; } = ProgrammeStatus.Pending;
 
     }
 }

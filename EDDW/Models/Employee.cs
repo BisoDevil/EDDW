@@ -44,7 +44,8 @@ namespace EDDW.Models
         [Display(Name = "Member type")]
         public CompanyMember Type { get; set; } = CompanyMember.Doctor;
 
-
         public string MessageToken { get; set; }
+        [NotMapped]
+        public string Token { get; set; }
     }
 }

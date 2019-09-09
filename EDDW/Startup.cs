@@ -13,6 +13,10 @@ using Microsoft.EntityFrameworkCore;
 using EDDW.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EDDW
 {
@@ -33,6 +37,27 @@ namespace EDDW
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+              .AddJwtBearer(options =>
+              {
+                  options.TokenValidationParameters = new TokenValidationParameters
+                  {
+                      ValidateIssuer = true,
+                      ValidateAudience = true,
+                      ValidateLifetime = false,
+                      ValidateIssuerSigningKey = true,
+                      ValidIssuer = Configuration["Jwt:Issuer"],
+                      ValidAudience = Configuration["Jwt:Issuer"],
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                  };
+              });
+            services.AddAuthorization(options =>
+            {
+                options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser()
+                    .Build();
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>

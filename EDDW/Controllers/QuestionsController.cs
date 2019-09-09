@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EDDW.Controllers
 {
-    [Authorize]
+    
     public class QuestionsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,10 +33,14 @@ namespace EDDW.Models
         public string Phone { get; set; }
 
         [Required]
+        //[JsonConverter(typeof(StringEnumConverter))]
         public Title Title { get; set; } = Title.Mr;
         public string Speciality { get; set; }
 
         [Required]
         public string Country { get; set; }
+
+        [NotMapped]
+        public string Token { get; set; }
     }
 }
