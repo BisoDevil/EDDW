@@ -21,7 +21,7 @@ namespace EDDW.Controllers.API
     public class ApiSpeakersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private IConfiguration _config = null;
+        private readonly IConfiguration _config;
         public ApiSpeakersController(ApplicationDbContext context, IConfiguration config)
         {
             _context = context;
