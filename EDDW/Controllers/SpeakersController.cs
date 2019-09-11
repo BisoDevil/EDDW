@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EDDW.Data;
 using EDDW.Models;
 using Microsoft.AspNetCore.Authorization;
+using EDDW.MailHub;
 
 namespace EDDW.Controllers
 {
@@ -64,6 +65,9 @@ namespace EDDW.Controllers
                 speaker.Username = GetUserName(speaker);
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
+
+                 new MailSendingHub().SendToSpeaker(speaker);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(speaker);

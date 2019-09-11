@@ -13,6 +13,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
+using EDDW.MailHub;
 
 namespace EDDW.Controllers.API
 {
@@ -118,7 +119,7 @@ namespace EDDW.Controllers.API
             await _context.SaveChangesAsync();
             string token = GenerateJSONWebToken(guest);
             guest.AccessToken = token;
-
+            new MailSendingHub().SendToGuest(guest);
             return CreatedAtAction("GetGuest", new { id = guest.Id }, guest);
         }
 

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EDDW.Data;
 using EDDW.Models;
 using Microsoft.AspNetCore.Authorization;
+using EDDW.MailHub;
 
 namespace EDDW.Controllers
 {
@@ -66,6 +67,7 @@ namespace EDDW.Controllers
 
                 _context.Add(guest);
                 await _context.SaveChangesAsync();
+                new MailSendingHub().SendToGuest(guest);
                 return RedirectToAction(nameof(Index));
             }
             return View(guest);

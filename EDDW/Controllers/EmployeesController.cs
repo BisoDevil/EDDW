@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EDDW.Data;
 using EDDW.Models;
 using Microsoft.AspNetCore.Authorization;
+using EDDW.MailHub;
 
 namespace EDDW.Controllers
 {
@@ -67,6 +68,7 @@ namespace EDDW.Controllers
                 employee.Username = GetUserName(employee);
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
+                new MailSendingHub().SendToEmployee(employee);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CompanyId"] = new SelectList(_context.Company, "Id", "Name", employee.CompanyId);
