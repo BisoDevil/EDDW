@@ -47,8 +47,13 @@ namespace EDDW.Models
         [Display(Name = "Attendance code")]
         public string AttendanceCode { get; set; }
 
-        //[JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter))]
         public ProgrammeStatus Status { get; set; } = ProgrammeStatus.Pending;
+
+
+        [Required]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ProgrammeType Type { get; set; } = ProgrammeType.Scentific;
 
     }
 }

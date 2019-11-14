@@ -61,7 +61,7 @@ namespace EDDW.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,StartDate,EndDate,SpeakerId,RoomId,AttendanceCode")] Programme programme)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,StartDate,EndDate,SpeakerId,RoomId,AttendanceCode,Type")] Programme programme)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace EDDW.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,StartDate,EndDate,SpeakerId,RoomId,AttendanceCode")] Programme programme)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,StartDate,EndDate,SpeakerId,RoomId,AttendanceCode,Type")] Programme programme)
         {
             if (id != programme.Id)
             {

@@ -42,5 +42,8 @@ namespace EDDW.Models
 
         [NotMapped]
         public string Token { get; set; }
+
+        [DataType(DataType.ImageUrl)]
+        public string ImageURL { get; set; }
     }
 }

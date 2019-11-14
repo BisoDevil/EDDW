@@ -27,5 +27,9 @@ namespace EDDW.Models
         Running,
         Closed
     }
+    public enum ProgrammeType
+    {
+        Scentific, HandsOn
+    }
 
 }

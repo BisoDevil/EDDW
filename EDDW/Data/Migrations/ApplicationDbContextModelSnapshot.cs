@@ -244,6 +244,8 @@ namespace EDDW.Data.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
+                    b.Property<int>("Type");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RoomId");
@@ -302,6 +304,8 @@ namespace EDDW.Data.Migrations
 
                     b.Property<string>("Fullname")
                         .IsRequired();
+
+                    b.Property<string>("ImageURL");
 
                     b.Property<string>("Phone")
                         .IsRequired();
