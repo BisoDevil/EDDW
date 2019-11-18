@@ -5,13 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EDDW.Models;
+using EDDW.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EDDW.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+
+        }
         public IActionResult Index()
         {
+            ViewData["speaker"] = _context.Speaker.ToList();
+
             return View();
         }
 
